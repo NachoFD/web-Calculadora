@@ -16,8 +16,8 @@
     height: 200px;
     border: 5px solid black;
     border-radius: 10px;
-    /* background-color: rgb(24, 123, 24); */
-    background-color: rgb(76, 132, 236);
+    background-color: rgb(56, 126, 56, 0.8);
+    /* background-color: rgb(76, 132, 236); */
 }
 
 .pantallaCalculadora h1{
@@ -33,9 +33,6 @@
     font-size: 30px;
     margin-right: 25px;
     cursor: default;
-}
-
-.botones{
 }
 
 .superiores{

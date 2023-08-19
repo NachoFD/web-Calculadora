@@ -10,19 +10,33 @@ import { useState } from "react"
 function App() {
 
   const [ animacion, setAnimacion ] = useState(false)
+  const [ animacionError, setAnimacionError ] = useState(false)
+
+  const mostrarAnimacion = () => {
+    setAnimacionError(true)
+  
+    setTimeout(() => {
+      setAnimacionError(false);
+    }, 1000)
+  }
 
   return (
-    <div>
-      <div style={{display: 'grid', placeItems: 'center'}}>
-        <div className="animate__animated animate__zoomIn">
-          <h1 className={ animacion ? 'animate__animated animate__pulse animate__infinite	infinite titulo' : 'titulo' } onMouseEnter={() => setAnimacion(true)} onMouseLeave={() => setAnimacion(false)}>Calculadora</h1>
-        </div>
-        <br />
-        <div className="animate__animated animate__zoomIn">
-          <Calculadora />
+
+    <div className="pantalla">
+
+      <div className="animate__animated animate__zoomIn">
+        <h1 className={ animacion ? 'animate__animated animate__pulse animate__infinite	infinite titulo' : 'titulo' } onMouseEnter={() => setAnimacion(true)} onMouseLeave={() => setAnimacion(false)}>Calculadora</h1>
+      </div>
+
+
+      <div className="animate__animated animate__zoomIn">
+        <div className={ !animacionError ? '' : 'animate__animated animate__shakeX'}>
+          <Calculadora error={mostrarAnimacion}/>
         </div>
       </div>
+
     </div>
+    
   )
 }
 

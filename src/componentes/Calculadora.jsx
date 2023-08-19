@@ -1,9 +1,12 @@
+/* eslint-disable react/prop-types */
 /* eslint-disable no-unused-vars */
 import React, { useState } from 'react'
 
 import './styleCalculadora.css'
 
-function Calculadora() {
+function Calculadora(props) {
+
+    const { error } = props
 
     const [ cuenta, setCuenta ] = useState('Cuenta')
     const [ resultado, setResultado ] = useState('Resultado')
@@ -15,7 +18,7 @@ function Calculadora() {
         if(cuenta == '0' || ultValor == 'a' || ultValor == '*' || ultValor == '/' || ultValor == '-' || ultValor == '+'){
         
             if(valor == '*' || valor == '/' || valor == '-' || valor == '+'){
-                // MOSTRAR ERROR (ANIMACION)
+                error()
             }
             else
             {
@@ -68,8 +71,15 @@ function Calculadora() {
     }
 
     const realizarCuenta = () => {
+
         if (cuenta === 'Cuenta' || cuenta === '0') {
             return;
+        }
+        
+        const ultValor = cuenta[cuenta.length - 1]
+        if(ultValor == 'a' || ultValor == '*' || ultValor == '/' || ultValor == '-' || ultValor == '+'){
+            error()
+            return
         }
     
         if (resultado === 'Resultado' || resultado === '0') {
@@ -110,7 +120,6 @@ function Calculadora() {
         setResultado(calcular(num1, num2, operador));
         console.log('---')
     }
-    
 
     const calcular = (num1, num2, valor) => {
         if(valor == '+'){

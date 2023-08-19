@@ -2,12 +2,27 @@ body{
     margin: 0;
 }
 
-.fondo{
-    width: 100%;
+/* .pantalla {
+    display: grid;
+    place-items: center;
+    background-color: rgb(192, 233, 251);
     height: 100vh;
-    background-color: rgb(195, 195, 195);
+    transition: background-color 0.5s ease;
 }
+
+.pantalla:hover {
+    background-color: rgba(192, 233, 251, 0.6); 
+} */
+
+.pantalla {
+    display: grid;
+    place-items: center;
+    height: 100vh;
+    background-image: linear-gradient(to bottom, rgb(194, 194, 194), rgba(154, 154, 154, 0.5));
+}
+
 
 .titulo{
     cursor: pointer;
+    margin-bottom: -60px;
 }
